@@ -1,0 +1,85 @@
+/* Add this to your App.css or any other stylesheet file */
+table{
+  border-collapse: collapse;
+}
+
+th,td{
+  border: 1px solid #ddd;
+  border-spacing: 0px;
+  padding: 10px 10px;
+}
+.pagination {
+  list-style: none;
+  display: flex;
+  margin: 20px 0;
+}
+
+tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+img {
+  /* width: 40px;
+  height: 40px; */
+  object-fit: cover ;
+  height:80px;
+   width:25px
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  /* text-align: left; */
+  background-color: #04AA6D;
+  color: white;
+}
+
+.pagination li {
+  margin-right: 5px;
+}
+
+.pagination button {
+  cursor: pointer;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.pagination button:hover {
+  background-color: #f0f0f0;
+}
+
+.pagination li.active button {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* styles.css */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  position: fixed;
+  background: white;
+  width: 50%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
