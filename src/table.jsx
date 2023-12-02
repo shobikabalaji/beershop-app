@@ -3,7 +3,6 @@ import axios from 'axios';
 import { connect, useDispatch } from 'react-redux';
 import { setSingleObject } from './store/actions';
 import Popup from './popup';
-import { type } from '@testing-library/user-event/dist/type';
 
 const TableView = ({ setSingleObject }) => {
   const [data, setData] = useState([]);
@@ -24,7 +23,7 @@ const TableView = ({ setSingleObject }) => {
 
     fetchData();
   }, [filter]);
-
+//used to view particular data from API
   const setObjectData = async (data) => {
     setShowPopup(!showPopup);
     if(data ?? false){
@@ -43,25 +42,29 @@ const TableView = ({ setSingleObject }) => {
   const currentRecords = data.slice(indexOfFirstRecord, indexOfLastRecord);
 
   // Change page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber)
+    window.scrollTo({ top: 0, behavior: 'smooth' }
+    )};
 
   return (
-    <div className='container-fluid'>
+    <div className='container-fluid' id='maindiv'>
       <h1 className='text-center'>Beershop-list Table</h1>
-      <button className='btn btn-primary m-1' onClick={()=>setfilter("brewed_after=11-2012")}>Brewed-before</button>
-      <button className='btn btn-primary' onClick={()=>setfilter("brewed_before=11-2012")}>Brewed-after</button>
-      <table className="table">
-        <thead className='text-center'>
+      <div className='d-flex justify-content-end'>
+      <button className='btn btn-primary mr-1' onClick={()=>setfilter("brewed_after=11-2012")}>Brewed-before</button>
+      <button className='btn btn-primary ml-1' onClick={()=>setfilter("brewed_before=11-2012")}>Brewed-after</button>
+      </div>
+      <table className="table mt-3">
+        <thead className='text-center bg-dark'>
           <tr>
             <th>ID</th>
-            <th>Img</th>
+            <th>Image</th>
             <th>Name</th>
             <th>Tagline</th>
             <th>Description</th>
             <th>Contribution</th>
             <th>Tips</th>
             <th>Actions</th>
-            {/* Add more headers based on your API response */}
           </tr>
         </thead>
         <tbody>
@@ -75,12 +78,11 @@ const TableView = ({ setSingleObject }) => {
               <td>{item.contributed_by}</td>
               <td>{item.brewers_tips}</td>
               <td><button className="btn btn-warning" onClick={()=>setObjectData(item.id)}>View</button></td>
-              {/* Add more cells based on your API response */}
             </tr>
           ))}
         </tbody>
       </table>
-      {/* Pagination */}
+{/* Pagination */}
       <div>
         {data.length > recordsPerPage && (
           <ul className="pagination" style={{justifyContent:'center'}}>
@@ -93,6 +95,7 @@ const TableView = ({ setSingleObject }) => {
           </ul>
         )}
       </div>
+{/* Template for popup */}
       <Popup show={showPopup} handleClose={()=>setObjectData(null)}>
       </Popup>
     </div>
