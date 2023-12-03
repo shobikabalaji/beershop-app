@@ -51,8 +51,8 @@ const TableView = ({ setSingleObject }) => {
     <div className='container-fluid' id='maindiv'>
       <h1 className='text-center'>Beershop-list Table</h1>
       <div className='d-flex justify-content-end'>
-      <button className='btn btn-primary mr-1' onClick={()=>setfilter("brewed_after=11-2012")}>Brewed-before</button>
-      <button className='btn btn-primary ml-1' onClick={()=>setfilter("brewed_before=11-2012")}>Brewed-after</button>
+      <button className='btn btn-primary mr-1' onClick={()=>setfilter("brewed_before=11-2012")}>Brewed-before</button>
+      <button className='btn btn-primary ml-1' onClick={()=>setfilter("brewed_after=11-2012")}>Brewed-after</button>
       </div>
       <table className="table mt-3">
         <thead className='text-center bg-dark'>
