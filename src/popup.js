@@ -3,14 +3,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 
-const Popup = ({ handleClose, show, children, setSingleObject}) => {
+const Popup = ({ handleClose, show,  setSingleObject}) => {
   const showHideClassName = show ? 'modal display-block' : 'modal display-none';
 
   return (
     <div className={showHideClassName}>
       <section className="modal-main">
       <button onClick={handleClose} className='btn-danger px-2 float-right rounded-circle'>X</button>
-        {children}
         <div className="container mt-4">
             <div className="row">
                 <div className="col-md-12">
@@ -29,7 +28,6 @@ const Popup = ({ handleClose, show, children, setSingleObject}) => {
     </div>
   );
 };
-
 
 
 const mapStatetoProps = (state) => {

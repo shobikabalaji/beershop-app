@@ -20,7 +20,6 @@ const TableView = ({ setSingleObject }) => {
         console.error('Error fetching data:', error);
       }
     };
-
     fetchData();
   }, [filter]);
 //used to view particular data from API
